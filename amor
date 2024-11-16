@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>si o no pues</title>
+    <style>
+        body {
+            background-color: orange;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #noBtn {
+            position: absolute;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        #image {
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function moveNoButton() {
+            const button = document.getElementById("noBtn");
+            const randomX = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+
+            showMessageAndImage();
+        }
+
+        function showMessageAndImage() {
+            const messages = [
+                "¡Oh, casi lo logras!",
+                "deje ala leah y ala adri",
+                "por que no dale conmigo estaras mejor",
+                "vamos papi di que si",
+                "yo le dare todo pa que seamos felices "
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            document.getElementById("message").innerText = randomMessage;
+            document.getElementById("image").src = "gatito.png"; // Imagen de ejemplo
+        }
+    </script>
+</head>
+<body>
+
+<h2> deje a todas sus amiguitas mol </h2>
+
+<div class="buttons">
+    <button onclick="alert('yeiiii te amo te amo no te arrepentiras de tu decision')" id="yesBtn">Sí</button>
+    <button onclick="moveNoButton()" id="noBtn">No</button>
+</div>
+
+<div id="message"></div>
+<center><img id="image" src="gatito.png" alt="Imagen de reacción"></center>
+
+</body>
+</html>
